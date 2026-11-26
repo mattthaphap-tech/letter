@@ -1,0 +1,123 @@
+name: Render Letter 40 Years Late (chunked)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  render-chunk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { start: 0, end: 222 }
+          - { start: 223, end: 445 }
+          - { start: 446, end: 668 }
+          - { start: 669, end: 891 }
+          - { start: 892, end: 1114 }
+          - { start: 1115, end: 1337 }
+          - { start: 1338, end: 1560 }
+          - { start: 1561, end: 1783 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install Google Chrome
+        run: |
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get update
+          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+          google-chrome --version
+      - name: Install dependencies
+        run: npm install
+      - name: Reassemble audio mix
+        run: |
+          mkdir -p public
+          cat audio-parts/letter_mix.wav.b64.part-* | base64 -d > public/letter_mix.wav
+          ls -la public/letter_mix.wav
+      - name: Render chunk ${{ matrix.start }}-${{ matrix.end }}
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: node scripts/render-chunk-letter.mjs ${{ matrix.start }} ${{ matrix.end }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chunk-${{ matrix.start }}-${{ matrix.end }}
+          path: out/letter/chunks/chunk-${{ matrix.start }}-${{ matrix.end }}.mp4
+          retention-days: 7
+
+  render-captions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install Google Chrome
+        run: |
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get update
+          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+          google-chrome --version
+      - name: Install dependencies
+        run: npm install
+      - name: Reassemble audio mix
+        run: |
+          mkdir -p public
+          cat audio-parts/letter_mix.wav.b64.part-* | base64 -d > public/letter_mix.wav
+          ls -la public/letter_mix.wav
+      - name: Render captions (green screen)
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: node scripts/render-chunk-letter.mjs captions
+      - uses: actions/upload-artifact@v4
+        with:
+          name: captions
+          path: out/letter/Letter_Captions_GreenScreen.mp4
+          retention-days: 7
+
+  concat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    needs: [render-chunk, render-captions]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          ffmpeg -version | head -1
+      - name: Reassemble audio mix
+        run: |
+          mkdir -p public
+          cat audio-parts/letter_mix.wav.b64.part-* | base64 -d > public/letter_mix.wav
+          ls -la public/letter_mix.wav
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: chunk-*
+          path: chunks
+          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: captions
+          path: captions
+      - name: Concat + composite captions + mux audio
+        run: |
+          ls -la chunks/ captions/
+          printf "file 'chunks/chunk-0-222.mp4'\nfile 'chunks/chunk-223-445.mp4'\nfile 'chunks/chunk-446-668.mp4'\nfile 'chunks/chunk-669-891.mp4'\nfile 'chunks/chunk-892-1114.mp4'\nfile 'chunks/chunk-1115-1337.mp4'\nfile 'chunks/chunk-1338-1560.mp4'\nfile 'chunks/chunk-1561-1783.mp4'\n" > concat.txt
+          cat concat.txt
+          ffmpeg -y -f concat -safe 0 -i concat.txt -c copy video_nocaps.mp4
+          ffmpeg -y -i video_nocaps.mp4 -i captions/Letter_Captions_GreenScreen.mp4 -i public/letter_mix.wav -filter_complex "[1:v]colorkey=0x00FF00:0.3:0.1[ck];[0:v][ck]overlay=0:0[v]" -map "[v]" -map 2:a -c:v libx264 -crf 18 -preset fast -c:a aac -b:a 192k -shortest Letter_Video_Final_With_Captions.mp4
+          ffmpeg -y -i video_nocaps.mp4 -i public/letter_mix.wav -c:v copy -c:a aac -b:a 192k -shortest Letter_Video_Final.mp4
+          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 Letter_Video_Final_With_Captions.mp4
+          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 Letter_Video_Final.mp4
+          ls -la *.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Letter_Final
+          path: |
+            Letter_Video_Final_With_Captions.mp4
+            Letter_Video_Final.mp4
+          retention-days: 30
