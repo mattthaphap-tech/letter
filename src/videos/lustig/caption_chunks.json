@@ -1,0 +1,382 @@
+[
+  {
+    "text": "He sold",
+    "start": 0.0,
+    "end": 0.5
+  },
+  {
+    "text": "the Eiffel",
+    "start": 0.5,
+    "end": 1.21
+  },
+  {
+    "text": "Tower.",
+    "start": 1.21,
+    "end": 1.64
+  },
+  {
+    "text": "Twice.",
+    "start": 1.64,
+    "end": 2.46
+  },
+  {
+    "text": "In May",
+    "start": 3.16,
+    "end": 3.63
+  },
+  {
+    "text": "1925, a",
+    "start": 3.63,
+    "end": 4.18
+  },
+  {
+    "text": "con man",
+    "start": 4.18,
+    "end": 4.72
+  },
+  {
+    "text": "named Victor",
+    "start": 4.72,
+    "end": 5.66
+  },
+  {
+    "text": "Lustig arrived",
+    "start": 5.66,
+    "end": 6.76
+  },
+  {
+    "text": "in Paris,",
+    "start": 6.76,
+    "end": 7.46
+  },
+  {
+    "text": "pretending to",
+    "start": 7.98,
+    "end": 8.59
+  },
+  {
+    "text": "be a",
+    "start": 8.59,
+    "end": 8.78
+  },
+  {
+    "text": "French government",
+    "start": 8.78,
+    "end": 9.58
+  },
+  {
+    "text": "official.",
+    "start": 9.58,
+    "end": 10.0
+  },
+  {
+    "text": "He took",
+    "start": 10.64,
+    "end": 11.02
+  },
+  {
+    "text": "them on",
+    "start": 11.02,
+    "end": 11.39
+  },
+  {
+    "text": "a tour",
+    "start": 11.39,
+    "end": 11.71
+  },
+  {
+    "text": "of the",
+    "start": 11.71,
+    "end": 12.03
+  },
+  {
+    "text": "tower in",
+    "start": 12.03,
+    "end": 12.46
+  },
+  {
+    "text": "a government",
+    "start": 12.46,
+    "end": 13.11
+  },
+  {
+    "text": "car,",
+    "start": 13.11,
+    "end": 13.32
+  },
+  {
+    "text": "like he",
+    "start": 13.7,
+    "end": 14.14
+  },
+  {
+    "text": "already owned",
+    "start": 14.14,
+    "end": 14.95
+  },
+  {
+    "text": "it.",
+    "start": 14.95,
+    "end": 15.14
+  },
+  {
+    "text": "He picked",
+    "start": 15.66,
+    "end": 16.27
+  },
+  {
+    "text": "the most",
+    "start": 16.27,
+    "end": 16.8
+  },
+  {
+    "text": "ambitious one,",
+    "start": 16.8,
+    "end": 17.75
+  },
+  {
+    "text": "a newcomer",
+    "start": 17.75,
+    "end": 18.42
+  },
+  {
+    "text": "named André",
+    "start": 18.42,
+    "end": 19.16
+  },
+  {
+    "text": "Poisson,",
+    "start": 19.16,
+    "end": 19.7
+  },
+  {
+    "text": "and asked",
+    "start": 20.16,
+    "end": 20.68
+  },
+  {
+    "text": "for a",
+    "start": 20.68,
+    "end": 20.97
+  },
+  {
+    "text": "bribe on",
+    "start": 20.97,
+    "end": 21.43
+  },
+  {
+    "text": "top of",
+    "start": 21.43,
+    "end": 21.78
+  },
+  {
+    "text": "the price.",
+    "start": 21.78,
+    "end": 22.36
+  },
+  {
+    "text": "And that's",
+    "start": 23.04,
+    "end": 23.5
+  },
+  {
+    "text": "what made",
+    "start": 23.5,
+    "end": 23.91
+  },
+  {
+    "text": "it work.",
+    "start": 23.91,
+    "end": 24.28
+  },
+  {
+    "text": "A bribe",
+    "start": 24.92,
+    "end": 25.37
+  },
+  {
+    "text": "makes a",
+    "start": 25.37,
+    "end": 25.83
+  },
+  {
+    "text": "fake deal",
+    "start": 25.83,
+    "end": 26.41
+  },
+  {
+    "text": "feel real",
+    "start": 26.41,
+    "end": 27.0
+  },
+  {
+    "text": "—",
+    "start": 27.0,
+    "end": 27.06
+  },
+  {
+    "text": "and everyone",
+    "start": 27.62,
+    "end": 28.31
+  },
+  {
+    "text": "already believed",
+    "start": 28.31,
+    "end": 29.23
+  },
+  {
+    "text": "the rusting",
+    "start": 29.23,
+    "end": 29.86
+  },
+  {
+    "text": "tower cost",
+    "start": 29.86,
+    "end": 30.44
+  },
+  {
+    "text": "too much",
+    "start": 30.44,
+    "end": 30.9
+  },
+  {
+    "text": "to keep.",
+    "start": 30.9,
+    "end": 31.36
+  },
+  {
+    "text": "Poisson paid,",
+    "start": 32.02,
+    "end": 32.94
+  },
+  {
+    "text": "and Lustig",
+    "start": 32.94,
+    "end": 33.64
+  },
+  {
+    "text": "was on",
+    "start": 33.64,
+    "end": 34.06
+  },
+  {
+    "text": "a train",
+    "start": 34.06,
+    "end": 34.56
+  },
+  {
+    "text": "to Vienna",
+    "start": 34.56,
+    "end": 35.19
+  },
+  {
+    "text": "before anyone",
+    "start": 35.19,
+    "end": 36.1
+  },
+  {
+    "text": "came looking.",
+    "start": 36.1,
+    "end": 37.02
+  },
+  {
+    "text": "Poisson never",
+    "start": 37.74,
+    "end": 38.49
+  },
+  {
+    "text": "called the",
+    "start": 38.49,
+    "end": 39.07
+  },
+  {
+    "text": "police.",
+    "start": 39.07,
+    "end": 39.48
+  },
+  {
+    "text": "He was",
+    "start": 40.24,
+    "end": 40.5
+  },
+  {
+    "text": "too embarrassed.",
+    "start": 40.5,
+    "end": 41.2
+  },
+  {
+    "text": "So a",
+    "start": 42.02,
+    "end": 42.28
+  },
+  {
+    "text": "month later,",
+    "start": 42.28,
+    "end": 43.05
+  },
+  {
+    "text": "Lustig came",
+    "start": 43.05,
+    "end": 43.76
+  },
+  {
+    "text": "back and",
+    "start": 43.76,
+    "end": 44.27
+  },
+  {
+    "text": "tried to",
+    "start": 44.27,
+    "end": 44.78
+  },
+  {
+    "text": "sell it",
+    "start": 44.78,
+    "end": 45.23
+  },
+  {
+    "text": "again.",
+    "start": 45.23,
+    "end": 45.62
+  },
+  {
+    "text": "The police",
+    "start": 46.34,
+    "end": 46.98
+  },
+  {
+    "text": "only caught",
+    "start": 46.98,
+    "end": 47.67
+  },
+  {
+    "text": "him years",
+    "start": 47.67,
+    "end": 48.25
+  },
+  {
+    "text": "later —",
+    "start": 48.25,
+    "end": 48.69
+  },
+  {
+    "text": "for fake",
+    "start": 48.69,
+    "end": 49.2
+  },
+  {
+    "text": "money.",
+    "start": 49.2,
+    "end": 49.58
+  },
+  {
+    "text": "Never for",
+    "start": 50.32,
+    "end": 50.78
+  },
+  {
+    "text": "the tower.",
+    "start": 50.78,
+    "end": 51.3
+  }
+]
